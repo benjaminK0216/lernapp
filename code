@@ -9,22 +9,12 @@ int richtigeVokabeln;
 using namespace std;
 void FachMathe();
 void FachLatein();
-bool primeNumber(int number) {//Nicht fertig!!!
-    for (int i = 2; i < number; i++) {
-
-        if (number % i == 0) {
-
-            return false;
-        }
-
-        return true;
-
-}
 
 
 
 
-}
+
+
 
 char Flaecheninhalt() {
     cout << "A= Flaecheninhalt; U= Umfang\n\n";
@@ -235,10 +225,9 @@ void FachMathe() {
     int AuswahlMathe;
     cout << "0. Fachauswahl\n" << "1. m(Anstieg) berechnen\n";
     cout << "2. y-Achsenabschnitt berechnen" << endl << "3. Roemische Zahlen\n";
-    cout << "4. Primzahlen bis 100\n";
-    cout << "5. Formeln fuer den Flaecheninhalt bzw. Umfang\n";
-    cout << "6. Umkreis und Thaleskreis\n";
-    cout << "7. Kongruenzsaetze\n";
+    cout << "4. Formeln fuer den Flaecheninhalt bzw. Umfang\n";
+    cout << "5. Umkreis und Thaleskreis\n";
+    cout << "6. Kongruenzsaetze\n";
     cin >> AuswahlMathe;
     system("cls");
     switch (AuswahlMathe) {
@@ -282,25 +271,19 @@ void FachMathe() {
         system("pause");
         system("cls");
         break;
-    case 4:cout << "Primzahlen bis 100\n\n\n";
-        Primzahlen();
-        cout << endl << endl;
-        system("pause");
-        system("cls");
-        break;
-    case 5:cout << "Flaecheninhalt und Umfang\n\n\n";
+    case 4:cout << "Flaecheninhalt und Umfang\n\n\n";
         Flaecheninhalt();
         cout << endl << endl;
         system("pause");
         system("cls");
         break;
-    case 6:cout << "Umkreis\n\n\n";
+    case 5:cout << "Umkreis\n\n\n";
         Umkreis();
         cout << endl << endl;
         system("pause");
         system("cls");
         break;
-    case 7:cout << "Kongruenzsaetze\n\n\n";
+    case 6:cout << "Kongruenzsaetze\n\n\n";
         Kongruenzsaetze();
         cout << endl << endl;
         system("pause");
