@@ -1,1 +1,586 @@
+// Lernapp.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
+//Viel Spaß!
 
+#include <iostream>
+#include<iomanip>
+int counterFalse;
+int counterRight;
+int counterX;
+int richtigeVokabeln;
+using namespace std;
+void FachMathe();
+void FachLatein();
+bool primeNumber(int number) {//Nicht fertig!!!
+    for (int i = 2; i < number; i++) {
+
+        if (number % i == 0) {
+
+            return false;
+        }
+
+        return true;
+
+}
+
+
+
+
+}
+
+char Flaecheninhalt() {
+    cout << "A= Flaecheninhalt; U= Umfang\n\n";
+    cout << "A. Quadrat oder Rechteck: A= a*b; U= 2*a+2*b\n";
+    cout << "B. Parallelogramme: A= a*ha; U= 2*a+2*b\n";
+    cout << "C. Trapez: A= ((a+c):2)*h; U= a+b+c+d\n";
+    cout << "D. Dreieck: A = 1/2*(g*h); U= a+b+c\n";
+    cout << "E. Drachenviereck: A= 1/2*(e*h) ((e=breite * h=hoehe))\n";
+    cout << endl << endl << endl << endl << endl;
+    cout << "Test: \n";
+    cout << "1. Schreibe die Formel des Flaecheninhalts von einem Parallelogramm auf.\n";
+    cout << "2. Erklaere warum beim Quadrat die Formel fuer den Flaecheninhalt 'a*b' ist.\n";
+    cout << "3. Zeichne ein beliebiges Trapez und berechne jenen Flaecheninhalt und Umfang.\n";
+    cout << "4. Schreibe die Formel des Umfangs von einem Parallelogramm auf.\n";
+    cout << endl << endl << endl;
+    cout << "Zur genaueren Erklaerung gebe den Buchstaben ein: ";
+    char chooseLetter = 0;
+    cin >> chooseLetter;
+    cout << endl << endl;
+    switch (chooseLetter)
+    {
+    case 'A':cout << "a*b= Hoehe mal Laenge. Im Umfang sind alle Seiten addiert.\n"; break;
+    case 'B':cout << "a*ha= die Seite a mal genommen mit der Hoehe a.\n"; break;
+    case 'C':cout << "((a+c):2)*h= die Seiten a und c werden addiert und dann durch zwei dividiert, um auf zwei gleiche Seiten zu kommen wie beim Rechteck. Dann wird dies mal der Hoehe gerechnet, um den Flaecheninhalt zu bekommen\n"; break;
+    case 'D':cout << "(a*b):2= da es jeweils immer die Haelfte eines Rechtecks ist und per Hilfsdreiecke erweitert werden kann."; break;
+    case 'E':cout << "1/2*(e*h)= Da jedes Drachenviereck jeweils die Haelfte eines Rechteckes ist, deswegen wird durch 2 dividiert."; break;
+    default: cout << "bye!";
+        break;
+    }
+
+
+
+    return 0;
+
+}
+char Umkreis() {
+    cout << "A. Umkreis konstruieren\n";
+    char choose = 0;
+    cin >> choose;
+    cout << endl << endl << endl;
+    switch (choose)
+    {
+    case 'A': cout << "Als erstes zeichne das Dreieck ABC und trage den Mittelpunkt m auf der Strecke AB ein. Dann ziehe, durch den Mittelpunkt m, eine Gerade f. \n";
+        cout << " Dann trage einen Mittelpunkt m2 auf die Strecke AC ein und zeichne wieder eine Gerade durch diesen. Der Schnittpunkt s ist der Mittelpunkt des Umkreises.\n ";
+        break;
+    default:cout << "bye\n";
+        break;
+    }
+    
+
+
+
+    return 0;
+}
+char Kongruenzsaetze() {
+    cout << "Es gibt vier Kongruenzsaetze: Ein Kongruenzsatz zeigt an, dass ein Dreieck mit einem anderen Dreieck kongruent (gleich) ist.\n\n\n";
+    cout << "SSS= Seite, Seite, Seite. Die Dreiecke stimmen in allen seiten ueberein.\n\n";
+    cout << "SWS= Seite, Winkel, Seite. Die Dreiecke stimmen in zwei Seiten und dem eingeschlossenen Winkel ueberein.\n\n";
+    cout << "WSW= Winkel, Seite, Winkel. Die Dreiecke stimmen in zwei Winkeln und der eingschlossenen Seite ueberein.\n\n";
+    cout << "SSW= Seite, Seite, Winkel. Die Dreiecke stimmen in zwei Seiten und dem Winkel ,der gegenueber der laengeren Seite liegt, ueberein.\n\n";
+    return 0;
+}
+char RoemischeZahlenZeichen() {
+    char roemischeZahl[7] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
+    double Zahl = 1;
+    for (int i = 0; i < 7; i++ ) {
+        cout << Zahl << " = " << roemischeZahl[i] << endl;
+        if (i % 2 == 0  ) {
+            Zahl *= 5;
+
+        }
+        else {
+            Zahl *= 2;
+
+        }
+
+        
+
+    }
+
+
+    return roemischeZahl, Zahl;
+
+}
+double MatheYAbschnittBerechenen(double& y, double& x, double& m) {
+    
+    double n;
+    n = m * x; //n (1) =Nullpunkt (y1)
+    m = m * -1;
+    if (m >= 0.0) {
+        cout << "y-Achsenabschnitt P1" << endl; //y1|x1
+        cout << y << " = " << m << " * " << x << "  " << n;
+    }
+    else {
+        cout << "y-Achsenabschnitt P1" << endl; //y1|x1         
+        
+        cout << y << " = " << m << " * " << x << " + " << n;
+
+
+    }
+ 
+
+    return y;
+
+
+
+
+
+}
+double MatheSteigungenBerechnen(double& y1, double& y2, double& x1, double& x2) {
+ 
+    double m;
+    
+
+
+    cout << endl;
+    m = (y1 - y2) / (x1 - x2);
+    cout << "Steigung m= Bruch: " <<(y1-y2)<<" / "<<(x1 - x2) << endl << "Dezimalzahl: " << m<<endl;
+    cout << "y-Achsenabschnitt (y = m*x+n)" << endl;
+    
+
+
+    return m;
+    
+
+
+
+}
+void Vokabel(string Lat, string De) {
+    cout << "LATEIN: " << Lat << "      |        DEUTSCH: ";
+    string Deutsch2;
+    cin >> Deutsch2;
+    cout << endl;
+    if (De == Deutsch2) {
+        cout << "Richtig!" << endl;
+
+        counterRight++;
+        richtigeVokabeln++;
+
+    }
+    else {
+        if (Deutsch2 == "x") {
+            cout << "RICHTIG: " << De << endl;
+            cout << "-------" << endl;
+            counterX++;
+
+
+
+        }
+        else
+        {
+
+        
+        cout << "Falsch!" << endl;
+        cout << endl;
+        cout <<"RICHTIG: "<< De<<endl;
+        cout << "-------" << endl;
+        counterFalse++;
+        }
+
+    }
+    cout << endl << endl;
+
+
+
+
+}
+int main()
+{
+    string Fach;
+    cout << "Latein  |  Mathe" << endl;
+    cout << "Welches Fach moechtest du lernen?\n";
+    cin >> Fach;
+    system("cls");
+    if (Fach == "Mathe") {
+        FachMathe();
+
+        
+
+
+
+
+    }
+    else {
+        if (Fach == "Latein") {
+            FachLatein();
+        }
+        else {
+        system("cls");
+        cout << "Momentan sind nur die Faecher Latein und Mathe verfuegbar!\n";
+        system("pause");
+        system("cls");
+        main();
+
+
+}
+
+    }
+
+    system("pause>0");
+
+}
+
+void FachMathe() {
+
+    cout << "M A T H E :" << endl;
+    cout << endl << endl;
+    int AuswahlMathe;
+    cout << "0. Fachauswahl\n" << "1. m(Anstieg) berechnen\n";
+    cout << "2. y-Achsenabschnitt berechnen" << endl << "3. Roemische Zahlen\n";
+    cout << "4. Primzahlen bis 100\n";
+    cout << "5. Formeln fuer den Flaecheninhalt bzw. Umfang\n";
+    cout << "6. Umkreis und Thaleskreis\n";
+    cout << "7. Kongruenzsaetze\n";
+    cin >> AuswahlMathe;
+    system("cls");
+    switch (AuswahlMathe) {
+    case 0:  main(); break;
+    case 1:cout << "m(Anstieg) berechnen\n\n\n";
+        double y1, y2, x1, x2;
+        cout << "y1=";
+        cin >> y1;
+        cout << endl;
+        cout << "y2=";
+        cin >> y2;
+        cout << endl;
+        cout << "x1=";
+        cin >> x1;
+        cout << endl;
+        cout << "x2=";
+        cin >> x2;
+        cout << endl;
+        cout << "n=";
+        cout << endl;
+        MatheSteigungenBerechnen(y1, y2, x1, x2);
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    case 2:cout << "y-Achsenabschnitt berechnen\n\n\n";
+        double y, x, m;
+        cout << "y=\n";
+        cin >> y;
+        cout << "x=\n";
+        cin >> x;
+        cout << "m=\n";
+        cin >> m;
+        MatheYAbschnittBerechenen(y, x, m);
+        cout << endl << endl;
+        system("pause");
+        system("cls"); break;
+    case 3:cout << "Roemische Zahlen\n\n\n";
+        RoemischeZahlenZeichen();
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    case 4:cout << "Primzahlen bis 100\n\n\n";
+        Primzahlen();
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    case 5:cout << "Flaecheninhalt und Umfang\n\n\n";
+        Flaecheninhalt();
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    case 6:cout << "Umkreis\n\n\n";
+        Umkreis();
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    case 7:cout << "Kongruenzsaetze\n\n\n";
+        Kongruenzsaetze();
+        cout << endl << endl;
+        system("pause");
+        system("cls");
+        break;
+    default:cout << "Momentan nur dies verfuegbar\n"; break;
+    }
+
+    FachMathe();
+}
+
+void FachLatein() {
+
+
+
+
+
+
+    int Lektion;
+    cout << "Willkommen beim Vokabel-Abfrager!\n" << "Anstatt Leerzeichen bitte Unterstrich(_) verwenden und ae, oe, ue !\n" << "Zum Ueberspringen x eingeben.\n";
+    cout << "Lektionen: 14, 15\n" << "Mit welcher Lektion moechtest du starten?" << endl;
+    cout << "Gebe 0 ein wenn du zurueck in die Fachauswahl moechtest.\n";
+    cin >> Lektion;
+    system("cls");
+    if (Lektion == 15) { //Lektion 15
+        cout << "Willkommen beim Vokabel-Abfrager!\n" << "Anstatt Leerzeichen bitte Unterstrich(_) verwenden und ae, oe, ue !\n" << "Zum Ueberspringen x eingeben.\n";
+        cout << "LEKTION 15: \n";
+        cout << endl << endl;
+        Vokabel("observare, observo, observavi, observatum", "beobachten");
+        Vokabel("taurus, -i m.", "der_Stier");
+        Vokabel("incredibilis, icredibilis, incredibile, Gen. incredibilis", "unglaublich");
+        Vokabel("forma,-ae f.", "die_Gestalt");
+        Vokabel("corpus, corporis", "der_Koerper");
+        Vokabel("color, coloris", "die_Farbe");
+        Vokabel("umquam (Adv.)", "jemals");
+        Vokabel("vultus, vultus", "das_Gesicht");
+        Vokabel("sinere, sino, sivi, sii, situm", "lassen");
+        Vokabel("iucundus, -a, -um", "angenehm");
+        Vokabel("quam mit Komparativ", "als");
+        Vokabel("conspicere, conspicio, conspexi,  conspectum", "erblicken");
+        Vokabel("mea/ tua/ nostra/ vestra/ sua sponte", "von_selbst");
+        Vokabel("adire, adeo, adii, aditum", "herangehen");
+        Vokabel("brevis, brevis, breve, Gen. brevis", "kurz");
+        Vokabel("tempus, temporis", "die_Zeit");
+        Vokabel("ferus, -a, -um", "wild");
+        Vokabel("tergum, -i n.", "der_Ruecken");
+        Vokabel("considere, consido, consedi, considi, consessum", "sich_niederlassen");
+        Vokabel("celeritas, celeritatis", "die_Schnelligkeit");
+        Vokabel("relinquere, relinquo, reliqui, relictum", "verlassen");
+        Vokabel("ne...quidem", "nicht_einmal");
+        Vokabel("tenuis, tenuis, tenue, Gen. tenuis", "duenn,_fein,_schwach");
+        Vokabel("cernere, cerno, crevi, cretum", "wahrnehmen");
+        Vokabel("longus, -a, -um", "lang");
+        Vokabel("conficere, conficio, confeci, confectum", "zu_Ende_bringen");
+        Vokabel("impellere, impello, impuli, impulsum", "bewegen");
+        Vokabel("felix, felix, felix, Gen. felicis", "gluecklich");
+        Vokabel("parere, pario, peperi, partum", "hervorbringen");
+
+
+
+
+
+        cout << "Du hast " << counterRight << " VOKABELN RICHTIG.\n" << "Du hast " << counterFalse << " VOKABELN FALSCH.\n" << "Du hast " << counterX << " VOKABELN UEBERSPRUNGEN.\n";
+        cout << endl << endl;
+        if (richtigeVokabeln == 29) {
+            cout << "Toll gemacht! Du kannst die Vokabeln schon richtig gut!\n";
+
+
+        }
+        else {
+
+            if (richtigeVokabeln <= 28 && richtigeVokabeln >= 26) {
+                cout << "Gut gemacht! Du kannst die Vokabeln schon gut und wenn du noch mehr lernst weisst du vieleicht bald auch alle anderen Vokabeln. Weiter so!";
+
+
+
+
+
+            }
+            else {
+                if (richtigeVokabeln <= 25 && richtigeVokabeln >= 20) {
+                    cout << "Gut! Du kannst einen Grossteil der Vokabeln aber du solltest noch mehr lernen!\n";
+
+
+
+
+
+
+                }
+                else {
+
+                    if (richtigeVokabeln <= 19 && richtigeVokabeln >= 15) {
+                        cout << "Du kannst schon einige Vokabeln, aber du musst noch mehr lernen!\n";
+
+
+
+                    }
+                    else {
+                        if (richtigeVokabeln <= 14 && richtigeVokabeln >= 7) {
+                            cout << "Du musst aufjedenfall noch lernen, aber ein paar Vokabeln kannst du schon!\n";
+
+
+
+
+                        }
+                        else {
+                            cout << "Du kannst zu wenige Vokabeln. Vor dir steht viel Arbeit!\n";
+
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+
+
+
+            }
+
+
+
+
+
+        }
+        cout << endl << endl << endl;
+        system("pause");
+        system("cls");
+        richtigeVokabeln = 0;
+        counterFalse = 0;
+        counterRight = 0;
+        counterX = 0;
+        FachLatein();
+
+    }
+    else {
+
+        if (Lektion == 14) {
+            cout << "Willkommen beim Vokabel-Abfrager!\n" << "Anstatt Leerzeichen bitte Unterstrich(_) verwenden und ae, oe, ue !\n" << "Zum Ueberspringen x eingeben.\n";
+            cout << "LEKTION 14: \n";
+            cout << endl << endl;
+            Vokabel("immortalis, immortalis, immortale, Gen. immortalis ", "unsterblich");
+            Vokabel("frux, fugis f.", "die_Feldfrucht");
+            Vokabel("maximus, -a, -um", "der_groesste");
+            Vokabel("insula, -ae f.", "die_Insel");
+            Vokabel("descendere, descendo, descendi, descensum", "herabsteigen");
+            Vokabel("flos, floris m.", "die_Blume");
+            Vokabel("colligere, colligo, collegi, collectum", "sammeln");
+            Vokabel("manus, manus f.", "die_Hand_oder_die_Schar");
+            Vokabel("terra, -ae f.", "die_Erde");
+            Vokabel("rex, regis m.", "der_Koenig");
+            Vokabel("regina, -ae f.", "die_Koenigin");
+            Vokabel("inferi, -orum m. (Pluralwort)", "die Unterwelt");
+            Vokabel("amor, amoris m.", "die_Liebe");
+
+
+
+
+
+
+
+
+            cout << "Du hast " << counterRight << " VOKABELN RICHTIG.\n" << "Du hast " << counterFalse << " VOKABELN FALSCH.\n" << "Du hast " << counterX << " VOKABELN UEBERSPRUNGEN.\n";
+            cout << endl << endl;
+            if (richtigeVokabeln == 29) {
+                cout << "Toll gemacht! Du kannst die Vokabeln schon richtig gut!\n";
+
+
+            }
+            else {
+
+                if (richtigeVokabeln <= 28 && richtigeVokabeln >= 26) {
+                    cout << "Gut gemacht! Du kannst die Vokabeln schon gut und wenn du noch mehr lernst weisst du vieleicht bald auch alle anderen Vokabeln. Weiter so!";
+
+
+
+
+
+                }
+                else {
+                    if (richtigeVokabeln <= 25 && richtigeVokabeln >= 20) {
+                        cout << "Gut! Du kannst einen Grossteil der Vokabeln aber du solltest noch mehr lernen!\n";
+
+
+
+
+
+
+                    }
+                    else {
+
+                        if (richtigeVokabeln <= 19 && richtigeVokabeln >= 15) {
+                            cout << "Du kannst schon einige Vokabeln, aber du musst noch mehr lernen!\n";
+
+
+
+                        }
+                        else {
+                            if (richtigeVokabeln <= 14 && richtigeVokabeln >= 7) {
+                                cout << "Du musst aufjedenfall noch lernen, aber ein paar Vokabeln kannst du schon!\n";
+
+
+
+
+                            }
+                            else {
+                                cout << "Du kannst zu wenige Vokabeln. Vor dir steht noch viel Arbeit!\n";
+
+
+
+
+                            }
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+                }
+
+
+
+
+
+            }
+            cout << endl << endl << endl;
+            system("pause");
+            system("cls");
+            richtigeVokabeln = 0;
+            counterFalse = 0;
+            counterRight = 0;
+            counterX = 0;
+            FachLatein();
+
+
+
+
+
+        }
+        else {
+
+
+            if (Lektion == 0) {
+                main();
+
+
+
+            }
+
+            if (Lektion != 14 && Lektion != 15 && Lektion != 0) {
+                system("cls");
+                cout << "Es sind momentan nur Lektion 14 und 15 online...";
+                cout << endl << endl << endl << endl;
+                system("pause");
+                system("cls");
+                FachLatein();
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+    }
+}
